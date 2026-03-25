@@ -1,0 +1,52 @@
+<template>
+    <section>
+        <h2 class="section_heading">WORK EXPERIENCE</h2>
+        <div>
+    <ul class="slds-timeline">
+        <template for:each={workExperienceList} for:item="work">
+            <li key={work.id}>
+            <div class="slds-timeline__item_expandable slds-timeline__item_task slds-is-open">
+                <div class="slds-media">
+                <div class="slds-media__figure">
+                    <button class="slds-button slds-button_icon">
+                        <lightning-icon icon-name='utility:switch' alternative-text='switch' 
+                        size='x-small' title='switch'></lightning-icon>
+                    </button>
+                    <div class="slds-icon_container slds-icon-standard-task slds-timeline__icon" title="task">
+                        <lightning-icon icon-name='standard:task' 
+                        alternative-text='task' size='small' title='task'></lightning-icon>
+                    </div>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-grid slds-grid_align-spread slds-timeline__trigger">
+                    <div class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space">
+                        <!-- <h3 class="slds-truncate" title={work.Role}> -->
+                            <h3 class="blue_color font16 fontWeight700">{work.Role}</h3>
+                        <!-- </h3> -->
+                    </div>
+                    <div class="slds-timeline__actions_inline">
+                        <template if:true={work.IsCurrent}>
+                            <p class="slds-timeline__date">{work.JobStartDate} - Current</p>
+                        </template>
+                        <template if:false={work.IsCurrent}>
+                            <p class="slds-timeline__date">{work.JobStartDate} - {work.JobEndDate}</p>
+                        </template>
+                    </div>
+                    </div>
+                    <!-- <p class="slds-var-m-horizontal_xx-small"> -->
+                        <div class="blue_color font16">{work.CompanyName}, {work.WorkLocation}</div>
+                    <!-- </p> -->
+                    <article class="slds-box slds-timeline__item_details slds-theme_shade slds-var-m-top_x-small slds-var-m-horizontal_xx-small slds-var-p-around_medium" id="task-item-expanded-69" aria-hidden="false">
+                    <div>
+                      <c-portfolio-string-to-html content={work.Description}></c-portfolio-string-to-html>
+                    </div>
+                    </article>
+                </div>
+                </div>
+            </div>
+            </li>
+        </template>
+      </ul>
+    </div>
+    </section>
+</template>

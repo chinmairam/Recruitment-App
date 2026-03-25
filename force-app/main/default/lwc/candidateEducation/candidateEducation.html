@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Candidate Education" icon-name="standard:contact">
+        <lightning-record-form
+        object-api-name="Education__c"
+        fields={fieldList}
+        mode={mode}
+        columns="2"
+        onsubmit={handleSubmit}
+        onsuccess={handleSuccess}
+        onerror={handleError}
+        >
+        </lightning-record-form>
+    </lightning-card>
+</template>

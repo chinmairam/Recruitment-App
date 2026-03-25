@@ -1,0 +1,27 @@
+<template>
+    <section class="slds-var-p-left_medium">
+        <h2 class="section_heading">SKILLS</h2>
+            <h3 class="section_subHeading">TECHNICAL SKILLS</h3>
+            <template for:each={techSkills} for:item="tech">
+                <lightning-badge key={tech} label={tech} 
+                class="slds-badge slds-var-m-bottom_medium subText"></lightning-badge>
+            </template>
+            <h3 class="section_subHeading">SOFT SKILLS</h3>
+            <template for:each={softSkills} for:item="softskill">
+                <lightning-badge key={softskill} label={softskill} 
+                class="slds-badge slds-var-m-bottom_medium subText"></lightning-badge>
+            </template>
+            <div>
+                <c-my-resume-tags1 tags-list={otherSkills} heading="OTHER SKILLS">
+                </c-my-resume-tags1>
+            </div>
+            <div>
+                <c-my-resume-tags1 tags-list={languages} heading="LANGUAGES" type="MAIN">
+                </c-my-resume-tags1>
+            </div>
+            <div>
+                <c-my-resume-tags1 tags-list={interests} heading="INTERESTS" type="MAIN">
+                </c-my-resume-tags1>
+            </div>
+    </section>
+</template>

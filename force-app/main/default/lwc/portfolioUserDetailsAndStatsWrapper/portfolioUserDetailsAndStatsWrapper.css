@@ -1,0 +1,17 @@
+.userDetailsAndStatsWrapper{
+    background: grey;
+    padding: 16px;
+}
+
+.title{
+    background-color: grey;
+    color: #6B5B95;
+    text-align: center;
+    font-size: 20px;
+}
+
+@media (max-width:720px) {
+    .userDetailsAndStatsWrapper{
+        text-align: center;
+    }
+}

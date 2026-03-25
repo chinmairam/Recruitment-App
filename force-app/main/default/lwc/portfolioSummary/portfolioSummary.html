@@ -1,0 +1,35 @@
+<template>
+    <template if:true={viewMode}>
+        <lightning-record-edit-form record-id={recordId}
+        object-api-name={objectApiName} density="comfy">
+            <lightning-messages></lightning-messages>
+            <lightning-layout>
+                <lightning-layout-item size="12"> 
+                    <lightning-output-field field-name="Summary__c" variant="label-hidden"></lightning-output-field>
+                </lightning-layout-item>
+            </lightning-layout>
+            <div class="slds-var-m-top_medium">
+                <lightning-button label='Edit'
+                onclick={handleEdit}>
+                </lightning-button>
+            </div>
+        </lightning-record-edit-form>
+    </template>
+    <template if:false={viewMode}>
+        <lightning-record-edit-form record-id={recordId} 
+        object-api-name={objectApiName} 
+        density="comfy" onsuccess={handleSuccess}>
+            <lightning-messages></lightning-messages>
+            <lightning-layout>
+                <lightning-layout-item size="12"> 
+                    <lightning-input-field field-name="Summary__c" variant="label-hidden"></lightning-input-field>
+                </lightning-layout-item>
+            </lightning-layout>
+            <div class="slds-var-m-top_medium slds-var-m-right_medium">
+                <lightning-button label='Cancel' onclick={handleCancel}></lightning-button>
+                <lightning-button class="slds-var-p-left_medium" variant="brand" type="submit" label='Save'>
+                </lightning-button>
+            </div>
+        </lightning-record-edit-form>
+    </template>
+</template>

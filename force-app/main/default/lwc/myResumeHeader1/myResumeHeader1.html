@@ -1,0 +1,58 @@
+<template>
+    <header>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                <div>
+                    <div class="nameHeading mobile_text_center">{name}</div>
+                    <div class="roleHeading mobile_text_center">{dob}</div>
+                </div>
+                <ul class="small_font">
+                    <li class="slds-var-m-bottom_small">
+                        <a href={emailLink} class="link">
+                            <lightning-icon icon-name="utility:email" alternative-text="email!" size="x-small"
+                                title="email" class="slds-var-m-right_small"></lightning-icon>
+                                {email}
+                        </a>
+                    </li>
+                    <li class="slds-var-m-bottom_small">
+                        <a href={phoneLink} class="link">
+                            <lightning-icon icon-name="utility:dialing" alternative-text="dialing!" size="x-small" title="dialing"
+                                class="slds-var-m-right_small"></lightning-icon>
+                            {phone}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12">
+                <ul class="small_font">
+                    <template for:each={socialDetails} for:item="item">
+                        <li class="slds-var-m-bottom_small" key={item.type}>
+                            <a href={item.link} target="_blank" class="link">
+                             <img src={item.icon} alt={item.type} width="20px" class="slds-var-m-right_small" />
+                            <span>{item.label}</span>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+
+            <template if:true={showActions}>
+                <div class="slds-float_right slds-no-flex">
+                    <lightning-button
+                        label="Edit Profile"
+                        onclick={handleEdit}
+                    ></lightning-button>
+                </div>
+            </template>
+        </div>
+    </header>
+
+    <c-edit-basic-info
+        is-opened={openEditDialog}
+        record-id={recordId}
+        object-api-name="CandidateProfile__c"
+        fields={editableFields}
+        columns="1"
+        onmodalclose={handleModalClose}
+    ></c-edit-basic-info>
+</template>

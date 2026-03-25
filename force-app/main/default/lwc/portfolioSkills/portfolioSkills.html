@@ -1,0 +1,28 @@
+<template>
+    <div class="skills-wrapper slds-var-p-around_x-large">
+        <h2 class="slds-text-heading_medium slds-var-m-bottom_medium">Technical Skills</h2>
+        <template for:each={techSkills} for:item="tech">
+            <lightning-badge key={tech} label={tech} 
+            class="slds-badge slds-var-m-bottom_medium"></lightning-badge>
+        </template>
+        <!-- <button id="skilladd" type="button" class="btn btn-success" onclick={addskill}><i class="fas fa-plus-circle"></i> Skill</button> -->
+
+        <h2 class="slds-text-heading_medium slds-var-m-bottom_medium">Soft Skills</h2>
+        <template for:each={softSkills} for:item="softskill">
+            <lightning-badge key={softskill} label={softskill} 
+            class="slds-badge slds-var-m-bottom_medium"></lightning-badge>
+        </template>
+
+        <!-- <div class="skill"><span><input type="checkbox" class="input-checkbox"></span><span><i class="fas fa-chevron-circle-right"></i></span>   <span contenteditable="true">write your skill here</span></div>
+        <div id="tech_skills"></div>
+        <button id="skilladd" type="button" class="btn btn-success" onclick={addskill}><i class="fas fa-plus-circle"></i> Skill</button> -->
+        <!-- <div class="tech_skill">Type skill<span contenteditable="true"></span></div>
+        <lightning-button id="tec" label="Add Tech Skill" title="Non-primary action" onclick={addTechSkill} class="slds-var-m-left_x-small"></lightning-button> -->
+
+        <lightning-input label="Add Tech" value={addtechs} onchange={handleInputChange}>
+        </lightning-input>
+        <div class="slds-var-m-around_medium">
+            <lightning-button label="Add Tech Skill" onclick={addTech}></lightning-button>
+        </div>
+    </div>
+</template>

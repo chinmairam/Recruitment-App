@@ -1,0 +1,72 @@
+<template>
+    <template if:true={viewMode}>
+    <lightning-record-edit-form
+    record-id={recordId}
+    object-api-name={objectApiName}
+    density="comfy"
+    >
+    <lightning-messages></lightning-messages>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-output-field field-name="Name"></lightning-output-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-output-field field-name="Date_of_Birth__c"></lightning-output-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-output-field field-name="Gender__c"></lightning-output-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-output-field field-name="Email__c"></lightning-output-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-output-field field-name="MobileNo__c"></lightning-output-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-output-field field-name="Address__c"></lightning-output-field>
+            </lightning-layout-item>
+        </lightning-layout>
+        <div class="slds-var-m-top_medium">
+            <lightning-button label='Edit'
+            onclick={handleEdit}>
+            </lightning-button>
+        </div>
+    </lightning-record-edit-form>
+    </template>
+    <template if:false={viewMode}>
+        <lightning-record-edit-form
+    record-id={recordId}
+    object-api-name={objectApiName}
+    density="comfy"
+    onsuccess={handleSuccess}
+    >
+    <lightning-messages></lightning-messages>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-input-field field-name="Name"></lightning-input-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-input-field field-name="Date_of_Birth__c"></lightning-input-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-input-field field-name="Gender__c"></lightning-input-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-input-field field-name="Email__c"></lightning-input-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-input-field field-name="MobileNo__c"></lightning-input-field>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="4" medium-device-size="3">
+                <lightning-input-field field-name="Address__c"></lightning-input-field>
+            </lightning-layout-item>
+        </lightning-layout>
+        <div class="slds-var-m-top_medium slds-var-m-right_medium">
+            <lightning-button label='Cancel' onclick={handleCancel}></lightning-button>
+            <lightning-button class="slds-var-p-left_medium" variant="brand" type="submit" label='Save'>
+            </lightning-button>
+        </div>
+        
+    </lightning-record-edit-form>
+    </template>
+</template>

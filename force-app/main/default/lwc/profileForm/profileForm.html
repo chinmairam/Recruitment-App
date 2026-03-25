@@ -1,0 +1,65 @@
+<!-- customRecordComponent.html -->
+<template>
+    <!-- Display Record -->
+    <lightning-card title="Candidate Profile">
+        <template lwc:if={showEditForm}>
+            <lightning-record-edit-form
+                object-api-name="CandidateProfile__c"
+                onsubmit={handleSuccess}
+                oncancel={handleCancel}
+            >
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name={fields.nameField}></lightning-input-field>
+                <lightning-input-field field-name={fields.dobfield}></lightning-input-field>
+                <lightning-input-field field-name={fields.emailfield}></lightning-input-field>
+                <lightning-input-field field-name={fields.genderfield}></lightning-input-field>
+                <lightning-input-field field-name={fields.phonefield}></lightning-input-field>
+                <div class="slds-var-m-top_medium">
+                    <lightning-button variant="brand" type="submit" label="Save"></lightning-button>
+                    <lightning-button type="reset" label="Cancel" onclick={handleCancel}></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </template>
+        <template if:false={showEditForm}>
+            <div class="slds-form-element__control">
+                <lightning-button-icon icon-name="utility:edit" variant="bare"
+                            onclick={changeView} alternative-text="edit"
+                            title="edit">
+                </lightning-button-icon>
+            </div>
+        </template>
+                <!--
+        <template if:true={record}>
+            <div>
+                Name: {record.Name}
+                DOB: {record.Date_of_Birth__c}
+                Education: {record.Education__c}
+            </div>
+            <lightning-button label="Edit" onclick={editRecord}></lightning-button>
+        </template>
+
+        <template if:true={showEditForm}>
+            <lightning-record-edit-form
+                record-id={recordId}
+                object-api-name="CandidateProfile__c"
+                onsubmit={handleSuccess}
+                oncancel={handleCancel}
+            >
+                <lightning-input-field field-name={fields.nameField}></lightning-input-field>
+                <lightning-input-field field-name={fields.dobfield}></lightning-input-field>
+                <lightning-input-field field-name={fields.educationfield}></lightning-input-field>
+                <lightning-input-field field-name={fields.emailfield}></lightning-input-field>
+                <lightning-input-field field-name={fields.genderfield}></lightning-input-field>
+                <lightning-input-field field-name={fields.phonefield}></lightning-input-field>
+                <lightning-input-field field-name={fields.skillfield}></lightning-input-field>
+                <lightning-input-field field-name={fields.experiencefield}></lightning-input-field>
+
+                <div class="slds-var-m-top_medium">
+                    <lightning-button variant="brand" type="submit" label="Save"></lightning-button>
+                    <lightning-button type="reset" label="Cancel" onclick={handleCancel}></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </template>
+    -->
+    </lightning-card>
+</template>

@@ -1,0 +1,66 @@
+<template>
+    <lightning-card title="Candidate Profile" icon-name="standard:contact">
+      <div class="slds-var-m-around_medium">
+          <lightning-messages></lightning-messages>
+          <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-2">
+              <lightning-input
+                label="Name"
+                value={name}
+                onchange={handleNameChange}
+                required
+              ></lightning-input>
+              <lightning-input
+                label="Date of Birth"
+                type="date"
+                value={dob}
+                onchange={handleDOBChange}
+              ></lightning-input>
+              <lightning-combobox
+                label="Gender"
+                value={gender}
+                onchange={handleGenderChange}
+                options={picklistValues}
+              ></lightning-combobox>
+              <lightning-input
+                label="Technical Skills"
+                value={techSkills}
+                onchange={handletechSkillsChange}
+              ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+              <lightning-input
+                label="Email"
+                value={email}
+                onchange={handleEmailChange}
+                required
+              ></lightning-input>
+              <lightning-input
+                label="Mobile No"
+                value={phone}
+                onchange={handlePhoneChange}
+              ></lightning-input>
+              <lightning-input
+                label="Address"
+                value={address}
+                onchange={handleAddressChange}
+                required
+              ></lightning-input>
+              <lightning-input
+                label="Soft Skills"
+                value={softSkills}
+                onchange={handlesoftSkillsChange}
+              ></lightning-input>
+            </div>
+          </div>
+          <div class="slds-var-m-top_medium">
+            <lightning-button
+              label="Save"
+              onclick={handleSave}
+              variant="brand"
+              class="slds-var-m-top_medium"
+            ></lightning-button>
+          </div>
+      </div>
+    </lightning-card>
+</template>

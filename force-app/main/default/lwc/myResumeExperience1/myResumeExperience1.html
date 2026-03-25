@@ -1,0 +1,31 @@
+<template>
+    <section class="slds-var-p-left_medium">
+        <template if:true={showActions}>
+            <lightning-button
+                label="Edit Work"
+                slot="actions"
+                onclick={handleEdit}
+            ></lightning-button>
+        </template>
+        <section>
+            <h2 class="section_heading">WORK EXPERIENCE</h2>
+            <div>
+                <div class="slds-var-p-left_x-large slds-is-relative workExp_content">
+                    <template for:each={tableData} for:item="item">
+                        <section key={item.Duration} class="workExp_individual slds-is-relative">
+                            <h3 class="blue_color font16 fontWeight700">{item.Role__c}</h3>
+                            <div class="blue_color font16">{item.Company_Name__c}  ({item.Duration})</div>
+                            <div class="blue_color font16">{item.Work_Location__c}</div>
+                            <div class="slds-var-m-bottom_xx-large">
+                                <p>
+                                    <lightning-formatted-rich-text value={item.Description__c}>
+                                    </lightning-formatted-rich-text>
+                                </p>
+                            </div>
+                        </section>
+                    </template>
+                </div>
+            </div>
+        </section>
+    </section>
+</template>

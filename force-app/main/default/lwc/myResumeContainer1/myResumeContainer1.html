@@ -1,0 +1,27 @@
+<template>
+    <div class="wrapper">
+        <div class="slds-var-p-around_medium header_color">
+            <c-my-resume-header1
+            social-details={SOCIAL_LINKS}
+            record-id={recordId}
+            object-api-name={objectApiName}
+            ></c-my-resume-header1>
+        </div>
+        <div class="slds-var-p-around_medium">
+            <c-my-resume-summary1 record-id={recordId} 
+            object-api-name={objectApiName}></c-my-resume-summary1>
+        </div>
+        <div class="slds-var-p-around_medium">
+           <div class="slds-grid slds-wrap">
+               <div class="slds-col slds-size_1-of-1 slds-medium-size_9-of-12 slds-large-size_9-of-12">
+                   <c-my-resume-experience1 record-id={recordId}></c-my-resume-experience1>
+                   <c-my-resume-extra1 record-id={recordId}></c-my-resume-extra1>
+               </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-12 slds-large-size_3-of-12">
+                    <c-my-resume-skills1 record-id={recordId} 
+                    object-api-name={objectApiName}></c-my-resume-skills1>
+                </div>
+           </div>
+        </div>
+    </div>
+</template>

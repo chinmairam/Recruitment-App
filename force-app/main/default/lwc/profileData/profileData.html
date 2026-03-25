@@ -1,0 +1,82 @@
+<template>
+    <lightning-card>
+        <!--    Spinner    -->
+        <template if:true={showSpinner}>
+            <lightning-spinner variant="brand" alternative-text="Loading" size="small">
+            </lightning-spinner>
+        </template>
+        <!--    Section Title    -->
+        <div class="slds-section slds-is-open" data-id="1">
+            <h3 class="label slds-truncate slds-var-p-around_xx-small slds-theme_shade">
+                <button type="button" aria-controls="1" class="slds-button slds-section__title-action" data-buttonid="1"
+                    onclick={toggleSection}>
+                    <lightning-icon icon-name="utility:switch" alternative-text="button icon" size="x-small"
+                        class="slds-section__title-action-icon slds-button__icon_left">
+                    </lightning-icon>
+                    <span class="slds-truncate my-custom-class" title="Section Title">
+                        &nbsp;Profile Data
+                    </span>
+                </button>
+            </h3>
+            <div class="slds-section__content">
+                <div class="slds-form slds-var-p-horizontal_medium" role="list">
+                    <!--     Error messages       -->
+                    <template if:true={showError}>
+                        <div class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+                            <span class="slds-assistive-text">warning</span>
+                            <span class="slds-icon_container slds-icon-utility-warning slds-var-m-right_x-small"
+                                        title="warning-icon"><lightning-icon icon-name="utility:warning"
+                                            size="x-small"></lightning-icon></span>
+                            <h2><lightning-formatted-text value={errorMessage}></lightning-formatted-text></h2>
+                        </div>
+                    </template>
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item padding="around-medium" flexibility="grow" size="12"
+                            medium-device-size="12" large-device-size="12" small-device-size="12">
+                            <div class="slds-form__row">
+                                <div class="slds-form__item" role="listitem">
+                                    <div 
+                                    class="slds-form-element slds-form-element_edit slds-form-element_horizontal slds-hint-parent">
+                                        <template if:true={showEditForm}>
+                                            <lightning-record-edit-form density="Comfy" record-id={recordId}
+                                                object-api-name="CandidateProfile__c">
+
+                                                <lightning-input-field field-name={Name}
+                                                    name={candidateName} onchange={storeValue}>
+                                                </lightning-input-field>
+                                                <lightning-input-field field-name={Date_of_Birth__c}
+                                                    name={DOB} onchange={storeValue}>
+                                                </lightning-input-field>
+                                                
+                                            </lightning-record-edit-form>
+                                        </template>
+
+                                        <!--<template if:false={showEditForm}>
+                                            <span class="slds-form-element__label">Candidate Name</span>
+                                            <span class="slds-form-element__label">Date of Birth</span>
+                                            <div class="slds-form-element__control">
+                                                <lightning-button-icon icon-name="utility:edit" variant="bare"
+                                                            onclick={changeView} alternative-text="edit"
+                                                            title="edit">
+                                                </lightning-button-icon>
+                                            </div>
+                                        </template> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </lightning-layout-item>
+                        <template if:true={showEditForm} >
+                            <div class="slds-align_absolute-center slds-var-p-top_small">
+                                <lightning-button label="Cancel" onclick={changeView} >
+                                </lightning-button>&nbsp;
+                                <lightning-button type="submit" variant="brand" label="Save"
+                                    onclick={handleSave}>
+                                </lightning-button>
+                            </div>
+                        </template>
+                    </lightning-layout>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,18 @@
+<template>
+    <section class="slds-var-p-left_medium">
+        <h2 class="section_heading slds-var-p-bottom_medium">CAREER SUMMARY</h2>
+        <template if:true={viewMode}>
+            <div>
+                <lightning-record-view-form record-id={recordId}
+                object-api-name={objectApiName}>
+                    <lightning-messages></lightning-messages>
+                    <ul class="summary_list slds-is-relative">
+                        <p class="font16">
+                            <lightning-output-field class="font16" field-name="Summary__c" variant="label-hidden"></lightning-output-field>
+                        </p>
+                    </ul>
+                </lightning-record-view-form>
+            </div>
+        </template>
+    </section>
+</template>

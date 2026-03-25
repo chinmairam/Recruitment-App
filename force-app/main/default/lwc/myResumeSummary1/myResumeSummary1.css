@@ -1,0 +1,24 @@
+.section_heading{
+    font-size: 1.25rem;
+    color: #1a3179;
+}
+
+.section_heading:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1.5px;
+    background: #8d9aad;
+}
+
+.summary_list li:before {
+    content: "\2724";
+    position: absolute;
+    left: 0;
+}
+
+.font16{
+    font-size: 1rem;
+}

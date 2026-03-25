@@ -1,0 +1,33 @@
+<template>
+    <section class="slds-var-p-left_medium">
+        <template if:true={showActions}>
+            <lightning-button
+                label="Edit Education"
+                slot="actions"
+                onclick={handleEdit}
+            ></lightning-button>
+         </template>
+        <h2 class="section_heading">EDUCATION</h2>
+        <div>
+            <ul>
+                <template for:each={tableData} for:item="list">
+                    <li key={list.NAME} class="slds-var-m-bottom_medium">
+                        <div class="slds-grid">
+                            <template if:true={ICON}>
+                                <img src={ICON} alt="icon" width="20px" class="slds-var-m-right_xx-small" />
+                            </template>
+                            <div class="fontWeight700 font14">{list.Title__c}
+                            </div>
+                        </div>
+                        <template if:true={list.Name}>
+                            <div class="uni_name">{list.Name}</div>
+                        </template>
+                        <template if:true={list.Passing_Year__c}>
+                            <div class="subText">{list.Passing_Year__c}</div>
+                        </template>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </section>
+</template>

@@ -1,0 +1,13 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-datatable
+                key-field="Id"
+                data={tableData}
+                columns={columns}
+                show-row-number-column
+                row-number-offset={rowOffset}
+                draft-values={draftValues}
+                onsave={handleSave}           
+                hide-checkbox-column>
+        </lightning-datatable>
+</template>
