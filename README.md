@@ -1,4 +1,4 @@
-# Recruitment Application (Salesforce DX)
+# Recruitment Application
 
 Recruitment Application built with Apex, Lightning Web Components (LWC), Flows, and custom objects.  
 The project supports candidate profile management, job posting/search workflows, interview scheduling, document upload and verification, and lead approval-to-conversion automation.
